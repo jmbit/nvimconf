@@ -7,7 +7,6 @@ return {
     end,
   },
 
-  -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -66,4 +65,35 @@ return {
   		},
   	},
   },
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    config = function(_, opts)
+      require("gopher").setup(opts)
+    end,
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]]
+    end,
+  },
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^4",
+    ft = { "rust" },
+    dependencies = "neovim/nvim-lspconfig",
+  },
+  {
+    'saecki/crates.nvim',
+    tag = 'stable',
+    config = function()
+        require('crates').setup()
+    end,
+  },
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function ()
+      vim.g.rustfmt_autosave = 1
+    end
+  },
+
 }

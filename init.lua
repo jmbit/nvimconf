@@ -34,6 +34,13 @@ dofile(vim.g.base46_cache .. "statusline")
 
 require "nvchad.autocmds"
 
+-- Custom filetypes
+vim.filetype.add({
+ extension = {
+  templ = "templ",
+ },
+})
+
 vim.schedule(function()
   require "mappings"
 end)
